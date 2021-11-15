@@ -1,7 +1,12 @@
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddSingleton<IPatientRepository, PatientRepository>();
+
+builder.Services.AddMvc();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddControllers();
 
 var app = builder.Build();
 if (app.Environment.IsDevelopment())
@@ -11,7 +16,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
-app.MapGet("/helloworld", () => "Hello world");
+app.UseRouting();
+app.MapControllers();
 
 app.Run();

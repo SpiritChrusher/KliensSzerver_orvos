@@ -1,5 +1,5 @@
-﻿namespace KliensSzerver_orvos;
+﻿namespace KliensSzerver_orvos.DataAccess;
 
-public class PatientRepository
+public class PatientRepository : IPatientRepository
 {
 }
