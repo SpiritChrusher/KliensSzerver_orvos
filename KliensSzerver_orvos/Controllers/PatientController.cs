@@ -11,8 +11,15 @@ public class PatientController : Controller
 
     [Route("")]
     [HttpGet]
-    public ActionResult<Patient> Index()
+    public ActionResult<PatientDto> GetPatient()
     {
-        return Ok(new Patient("a", "b", "c", "d"));
+        return Ok(new PatientDto("a", "b", "c", "d"));
+    }
+
+    [Route("")]
+    [HttpPost]
+    public ActionResult CreatePatient([FromBody] PatientDto patientRequest)
+    {
+        return StatusCode(StatusCodes.Status201Created);
     }
 }
