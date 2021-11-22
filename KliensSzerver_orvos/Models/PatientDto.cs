@@ -21,12 +21,12 @@ public class PatientDto
     [Required(ErrorMessage = $"{nameof(Description)} is required!")]
     public string Description { get; set; }
 
-    public PatientDto(long id, string name, string address, string sSN, string description)
+    public PatientDto(long id, string name, string address, string ssn, string description)
     {
         Id = id;
         Name = name;
         Address = address;
-        SSN = sSN;
+        SSN = ssn;
         Description = description;
     }
 }
