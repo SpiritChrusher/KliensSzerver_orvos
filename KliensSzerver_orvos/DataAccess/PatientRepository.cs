@@ -1,4 +1,6 @@
-﻿namespace KliensSzerver_orvos.DataAccess;
+﻿using KliensSzerver_orvos.Exceptions;
+
+namespace KliensSzerver_orvos.DataAccess;
 
 public class PatientRepository : IPatientRepository
 {
@@ -97,7 +99,7 @@ public class PatientRepository : IPatientRepository
         }
         catch (InvalidOperationException)
         {
-            return;
+            new BadRequestException();
         }
         catch (Exception)
         {

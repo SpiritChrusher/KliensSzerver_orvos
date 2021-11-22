@@ -29,6 +29,9 @@ public class PatientController : Controller
     [Route("{id}")]
     public async Task<ActionResult<PatientRequest>> GetPatient([FromRoute] long id)
     {
+        if (Validator.ValidateLong(id))
+            return BadRequest();
+
         try
         {
             var result = await _patientRepository.ReadPatientAsync(id);
@@ -37,7 +40,7 @@ public class PatientController : Controller
         catch (Exception)
         {
 
-            throw;
+            return BadRequest();
         }
     }
 
@@ -45,9 +48,12 @@ public class PatientController : Controller
     [Route("")]
     public async Task<ActionResult> CreatePatient([FromBody] PatientRequest patientRequest)
     {
+        if (Validator.IsPatientRequestBad(patientRequest))
+            return BadRequest();
+
         try
         {
-            _patientRepository.StorePatientAsync(patientRequest);
+            await _patientRepository.StorePatientAsync(patientRequest);
             return StatusCode(StatusCodes.Status201Created);
         }
         catch (Exception)
@@ -60,6 +66,9 @@ public class PatientController : Controller
     [Route("")]
     public async Task<ActionResult> UpdatePatient([FromBody] PatientDto updatedPatient)
     {
+        if (Validator.IsPatientDtoBad(updatedPatient))
+            return BadRequest();
+
         try
         {
             await _patientRepository.UpdatePatientAsync(updatedPatient);
@@ -91,12 +100,19 @@ public class PatientController : Controller
 
     [HttpDelete]
     [Route("{id}")]
-    public async Task<ActionResult> DeletePatient([FromRoute] long Id)
+    public async Task<ActionResult> DeletePatient([FromRoute] long id)
     {
+        if (Validator.ValidateLong(id))
+            return BadRequest();
+
         try
         {
-            await _patientRepository.DeletePatientAsync(Id);
+            await _patientRepository.DeletePatientAsync(id);
             return NoContent();
+        }
+        catch (InvalidOperationException e)
+        {
+            return BadRequest(e.Message);
         }
         catch (Exception)
         {
