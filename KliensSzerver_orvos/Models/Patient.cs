@@ -2,8 +2,8 @@
 
 public record PatientDto(
     [Required]
-    string Name, 
-    string Address, 
+    string Name,
+    string Address,
     [MaxLength(12)]
     string SSN,
     [Required]
@@ -21,7 +21,7 @@ public class Patient
     [Required(ErrorMessage = $"{nameof(Description)} is required!")]
     public string Description { get; set; }
 
-    public Patient(){}
+    public Patient() { }
 
     public Patient(long id, string name, string address, string sSN, string description)
     {

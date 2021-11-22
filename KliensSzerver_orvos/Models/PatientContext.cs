@@ -4,7 +4,12 @@ public class PatientContext : DbContext
 {
     public DbSet<Patient> Patients { get; set; }
 
-    protected override void OnModelCreating(ModelBuilder builder) 
+    public PatientContext([NotNullAttribute] DbContextOptions options) : base(options)
+    {
+
+    }
+
+    protected override void OnModelCreating(ModelBuilder builder)
     {
         builder.Entity<Patient>();
     }
