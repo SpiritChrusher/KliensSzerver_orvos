@@ -1,6 +1,6 @@
 ﻿namespace KliensSzerver_orvos.Models;
 
-public record PatientDto(
+public record PatientRequest(
     [Required]
     string Name,
     string Address,
@@ -9,7 +9,7 @@ public record PatientDto(
     [Required]
     string Description);
 
-public class Patient
+public class PatientDto
 {
     [Key]
     public long Id { get; set; }
@@ -21,9 +21,7 @@ public class Patient
     [Required(ErrorMessage = $"{nameof(Description)} is required!")]
     public string Description { get; set; }
 
-    public Patient() { }
-
-    public Patient(long id, string name, string address, string sSN, string description)
+    public PatientDto(long id, string name, string address, string sSN, string description)
     {
         Id = id;
         Name = name;

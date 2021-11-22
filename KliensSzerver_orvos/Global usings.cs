@@ -1,4 +1,5 @@
 ﻿global using KliensSzerver_orvos.DataAccess;
+global using KliensSzerver_orvos.Extensions;
 global using KliensSzerver_orvos.Models;
 global using KliensSzerver_orvos;
 

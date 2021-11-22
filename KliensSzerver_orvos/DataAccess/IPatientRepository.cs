@@ -2,10 +2,10 @@
 
 public interface IPatientRepository
 {
-    Task StorePatientAsync(PatientDto patient);
-    List<Patient> ReadAllPatientsAsync();
-    Patient ReadPatientAsync(long id);
-    Task UpdatePatientAsync(PatientDto patient);
+    Task StorePatientAsync(PatientRequest patient);
+    List<PatientDto> ReadAllPatientsAsync();
+    Task<PatientDto> ReadPatientAsync(long id);
+    Task UpdatePatientAsync(PatientDto updatedPatient);
     Task DeletePatientAsync(long id);
     Task DeleteAllPatientsAsync();
 }

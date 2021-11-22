@@ -10,7 +10,7 @@ public class PatientRepository : IPatientRepository
     }
 
 
-    public List<Patient> ReadAllPatientsAsync()
+    public List<PatientDto> ReadAllPatientsAsync()
     {
         try
         {
@@ -25,11 +25,11 @@ public class PatientRepository : IPatientRepository
         }       
     }
 
-    public Patient ReadPatientAsync(long id)
+    public async Task<PatientDto> ReadPatientAsync(long id)
     {
         try
         {
-            var patient = _context.Patients.Where(x => x.Id == id).FirstOrDefault();
+            var patient = await _context.Patients.Where(x => x.Id == id).FirstAsync();
             return patient;
         }
         catch (Exception)
@@ -39,22 +39,69 @@ public class PatientRepository : IPatientRepository
         }
     }
 
-    public Task StorePatientAsync(PatientDto patient)
+    public async Task StorePatientAsync(PatientRequest patientRequest)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var maxId = _context.Patients.Max(x => x.Id);
+
+            await _context.AddAsync(patientRequest.ToPatientDto(maxId+1));                   
+            await _context.SaveChangesAsync();
+        }
+        catch (InvalidOperationException)
+        {
+            await _context.AddAsync(patientRequest.ToPatientDto(1));
+            await _context.SaveChangesAsync();
+        }
+        catch (Exception)
+        {
+            throw;
+        }
     }
 
-    public Task UpdatePatientAsync(PatientDto patient)
+    public async Task UpdatePatientAsync(PatientDto updatedPatient)
     {
-        throw new NotImplementedException();
+        try
+        {
+            _context.Update(updatedPatient);
+            await _context.SaveChangesAsync();
+        }
+        catch (Exception)
+        {
+
+            throw;
+        }
     }
-    public Task DeleteAllPatientsAsync()
-    {       
-        throw new NotImplementedException();
+    public async Task DeleteAllPatientsAsync()
+    {
+        try
+        {
+            var patients = _context.Patients.ToList();
+            _context.RemoveRange(patients);
+            await _context.SaveChangesAsync();
+        }
+        catch (Exception)
+        {
+
+            throw;
+        }
     }
 
-    public Task DeletePatientAsync(long id)
+    public async Task DeletePatientAsync(long id)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var patient = _context.Patients.Where(x => x.Id == id).First();
+            _context.Remove(patient);
+            await _context.SaveChangesAsync();
+        }
+        catch (InvalidOperationException)
+        {
+            return;
+        }
+        catch (Exception)
+        {
+            throw;
+        }
     }
 }

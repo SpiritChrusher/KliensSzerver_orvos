@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KliensSzerver_orvos.Migrations
 {
     [DbContext(typeof(PatientContext))]
-    [Migration("20211122103042_Initial")]
-    partial class Initial
+    [Migration("20211122123951_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

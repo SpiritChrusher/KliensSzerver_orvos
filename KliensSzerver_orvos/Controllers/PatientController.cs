@@ -27,12 +27,12 @@ public class PatientController : Controller
 
     [HttpGet]
     [Route("{id}")]
-    public ActionResult<PatientDto> GetPatient([FromRoute] long id)
+    public async Task<ActionResult<PatientRequest>> GetPatient([FromRoute] long id)
     {
         try
         {
-            _patientRepository.ReadPatientAsync(id);
-            return Ok(new PatientDto("a", "b", "c", "d"));
+            var result = await _patientRepository.ReadPatientAsync(id);
+            return Ok(result);
         }
         catch (Exception)
         {
@@ -43,7 +43,7 @@ public class PatientController : Controller
 
     [HttpPost]
     [Route("")]
-    public ActionResult CreatePatient([FromBody] PatientDto patientRequest)
+    public async Task<ActionResult> CreatePatient([FromBody] PatientRequest patientRequest)
     {
         try
         {
@@ -58,11 +58,11 @@ public class PatientController : Controller
 
     [HttpPut]
     [Route("")]
-    public ActionResult UpdatePatient([FromBody] PatientDto updatedPatient)
+    public async Task<ActionResult> UpdatePatient([FromBody] PatientDto updatedPatient)
     {
         try
         {
-            _patientRepository.UpdatePatientAsync(updatedPatient);
+            await _patientRepository.UpdatePatientAsync(updatedPatient);
             return Ok();
         }
         catch (Exception)
@@ -73,12 +73,29 @@ public class PatientController : Controller
     }
 
     [HttpDelete]
-    [Route("{id}")]
-    public ActionResult DeletePatient([FromRoute] long Id)
+    [Route("")]
+    public async Task<ActionResult> DeletePatient()
     {
         try
         {
-            _patientRepository.DeletePatientAsync(Id);
+            await _patientRepository.DeleteAllPatientsAsync();
+            return NoContent();
+        }
+        catch (Exception)
+        {
+
+            return Conflict();
+        }
+
+    }
+
+    [HttpDelete]
+    [Route("{id}")]
+    public async Task<ActionResult> DeletePatient([FromRoute] long Id)
+    {
+        try
+        {
+            await _patientRepository.DeletePatientAsync(Id);
             return NoContent();
         }
         catch (Exception)
