@@ -1,6 +1,6 @@
 ﻿namespace KliensSzerver_orvos.Controllers;
 
-[Route("Patient")]
+[Route("/Patient")]
 public class PatientController : Controller
 {
     private IPatientRepository _patientRepository { get; }
@@ -9,14 +9,14 @@ public class PatientController : Controller
         _patientRepository = patientRepository;
     }
 
-    [Route("/all")]
     [HttpGet]
-    public ActionResult<PatientDto> GetPatients()
+    [Route("/all")]
+    public ActionResult<List<PatientDto>> GetPatients()
     {
         try
         {
-            _patientRepository.ReadAllPatientsAsync();
-            return Ok(new PatientDto("a", "b", "c", "d"));
+            var patients = _patientRepository.ReadAllPatientsAsync();
+            return Ok(patients);
         }
         catch (Exception)
         {
@@ -25,9 +25,9 @@ public class PatientController : Controller
         }
     }
 
-    [Route("")]
     [HttpGet]
-    public ActionResult<PatientDto> GetPatient([FromBody] long id)
+    [Route("{id}")]
+    public ActionResult<PatientDto> GetPatient([FromRoute] long id)
     {
         try
         {
@@ -41,8 +41,8 @@ public class PatientController : Controller
         }
     }
 
-    [Route("")]
     [HttpPost]
+    [Route("")]
     public ActionResult CreatePatient([FromBody] PatientDto patientRequest)
     {
         try
@@ -56,8 +56,8 @@ public class PatientController : Controller
         }
     }
 
-    [Route("")]
     [HttpPut]
+    [Route("")]
     public ActionResult UpdatePatient([FromBody] PatientDto updatedPatient)
     {
         try
@@ -72,9 +72,9 @@ public class PatientController : Controller
         }
     }
 
-    [Route("")]
     [HttpDelete]
-    public ActionResult DeletePatient([FromBody] long Id)
+    [Route("{id}")]
+    public ActionResult DeletePatient([FromRoute] long Id)
     {
         try
         {

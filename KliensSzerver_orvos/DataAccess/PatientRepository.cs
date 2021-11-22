@@ -2,31 +2,41 @@
 
 public class PatientRepository : IPatientRepository
 {
+    private PatientContext _context { get; set; }
 
-
-    public PatientRepository()
+    public PatientRepository(PatientContext context)
     {
-
+        _context = context;
     }
 
-    public Task DeleteAllPatientsAsync()
+
+    public List<Patient> ReadAllPatientsAsync()
     {
-        throw new NotImplementedException();
+        try
+        {
+            var patients = _context.Patients.ToList();
+            return patients;
+
+        }
+        catch (Exception)
+        {
+
+            throw;
+        }       
     }
 
-    public Task DeletePatientAsync(long Id)
+    public Patient ReadPatientAsync(long id)
     {
-        throw new NotImplementedException();
-    }
+        try
+        {
+            var patient = _context.Patients.Where(x => x.Id == id).FirstOrDefault();
+            return patient;
+        }
+        catch (Exception)
+        {
 
-    public Task ReadAllPatientsAsync()
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task ReadPatientAsync(long Id)
-    {
-        throw new NotImplementedException();
+            throw;
+        }
     }
 
     public Task StorePatientAsync(PatientDto patient)
@@ -35,6 +45,15 @@ public class PatientRepository : IPatientRepository
     }
 
     public Task UpdatePatientAsync(PatientDto patient)
+    {
+        throw new NotImplementedException();
+    }
+    public Task DeleteAllPatientsAsync()
+    {       
+        throw new NotImplementedException();
+    }
+
+    public Task DeletePatientAsync(long id)
     {
         throw new NotImplementedException();
     }

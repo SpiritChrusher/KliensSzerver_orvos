@@ -1,6 +1,6 @@
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddSingleton<IPatientRepository, PatientRepository>();
+builder.Services.AddScoped<IPatientRepository, PatientRepository>();
 
 builder.Services.AddMvc();
 builder.Services.AddEndpointsApiExplorer();
@@ -12,6 +12,7 @@ builder.Services.AddDbContext<PatientContext>(optons =>
 );
 
 var app = builder.Build();
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
