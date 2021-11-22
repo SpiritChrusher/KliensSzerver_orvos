@@ -8,6 +8,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assistant_client", "Assistant_client\Assistant_client.csproj", "{D8DFAB3D-5158-4F04-87C9-4E6BAC674300}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KliensSzerver_orvos.Tests", "KliensSzerver_orvos.Tests\KliensSzerver_orvos.Tests.csproj", "{1CEB3668-09CD-4802-BD69-928887C60D16}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C527D141-E9E1-46F5-83DA-A85BBA5BC8EC} = {C527D141-E9E1-46F5-83DA-A85BBA5BC8EC}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -8,7 +8,7 @@ public static class PatientExtensions
             id: id,
             name: patientRequest.Name,
             address: patientRequest.Address,
-            sSN: patientRequest.SSN,
+            ssn: patientRequest.SSN,
             description: patientRequest.Description
             );
     }
