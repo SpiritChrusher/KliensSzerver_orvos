@@ -7,7 +7,8 @@ public static class Validator
         if (request.Name.Equals(string.Empty) || request.Address.Equals(string.Empty)
             || request.SSN.Equals(string.Empty) || request.Description.Equals(string.Empty)
             || request.Name.Equals(string.IsNullOrWhiteSpace) || request.Address.Equals(string.IsNullOrWhiteSpace)
-            || request.SSN.Equals(string.IsNullOrWhiteSpace) || request.Description.Equals(string.IsNullOrWhiteSpace))
+            || request.SSN.Equals(string.IsNullOrWhiteSpace) || request.Description.Equals(string.IsNullOrWhiteSpace)
+            || request.SSN.Length > 12)
             return true;
 
         return false;
@@ -18,7 +19,8 @@ public static class Validator
         if (request.Id <= 0 || request.Name.Equals(string.Empty) || request.Address.Equals(string.Empty)
             || request.SSN.Equals(string.Empty) || request.Description.Equals(string.Empty) 
             || request.Name.Equals(string.IsNullOrWhiteSpace) || request.Address.Equals(string.IsNullOrWhiteSpace)
-            || request.SSN.Equals(string.IsNullOrWhiteSpace) || request.Description.Equals(string.IsNullOrWhiteSpace))
+            || request.SSN.Equals(string.IsNullOrWhiteSpace) || request.Description.Equals(string.IsNullOrWhiteSpace)
+            || request.SSN.Length > 12)
             return true;
 
         return false;

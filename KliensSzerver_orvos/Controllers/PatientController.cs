@@ -30,7 +30,7 @@ public class PatientController : Controller
     public async Task<ActionResult<PatientRequest>> GetPatient([FromRoute] long id)
     {
         if (Validator.ValidateLong(id))
-            return BadRequest();
+            return BadRequest("bad patient data!!!");
 
         try
         {
@@ -49,7 +49,7 @@ public class PatientController : Controller
     public async Task<ActionResult> CreatePatient([FromBody] PatientRequest patientRequest)
     {
         if (Validator.IsPatientRequestBad(patientRequest))
-            return BadRequest();
+            return BadRequest("bad patient data!!!");
 
         try
         {
@@ -67,7 +67,7 @@ public class PatientController : Controller
     public async Task<ActionResult> UpdatePatient([FromBody] PatientDto updatedPatient)
     {
         if (Validator.IsPatientDtoBad(updatedPatient))
-            return BadRequest();
+            return BadRequest("bad patient data!!!");
 
         try
         {
