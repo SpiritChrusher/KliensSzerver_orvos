@@ -17,7 +17,7 @@
   </ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\KliensSzerver_orvos\KliensSzerver_orvos.csproj"/>
+		<ProjectReference Include="..\KliensSzerver_orvos\KliensSzerver_orvos.csproj" />
 	</ItemGroup>
 
 </Project>

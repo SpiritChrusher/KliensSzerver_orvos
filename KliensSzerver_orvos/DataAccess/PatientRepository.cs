@@ -4,7 +4,7 @@ namespace KliensSzerver_orvos.DataAccess;
 
 public class PatientRepository : IPatientRepository
 {
-    private PatientContext _context { get; set; }
+    private PatientContext _context { get; }
 
     public PatientRepository(PatientContext context)
     {
@@ -18,7 +18,6 @@ public class PatientRepository : IPatientRepository
         {
             var patients = _context.Patients.ToList();
             return patients;
-
         }
         catch (Exception)
         {

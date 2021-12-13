@@ -4,6 +4,7 @@
 public class PatientController : Controller
 {
     private IPatientRepository _patientRepository { get; }
+
     public PatientController(IPatientRepository patientRepository)
     {
         _patientRepository = patientRepository;
