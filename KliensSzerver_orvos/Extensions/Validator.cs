@@ -27,4 +27,13 @@ public static class Validator
     }
 
     public static bool ValidateLong(long id) => id > 0 ? false : true;
+
+    /* TODO: - Név
+    - Validáció
+        - Nem lehet: üres, whitespace, különleges karakterek szűrése pl !?_-:;#
+    - UNIT teszt a validáló fv-re
+- Lakcím
+- Tajszám `Formátum: 000 000 000`
+    - Validáció
+        - Formátumra és hogy csak számokat tartalmaz */
 }
