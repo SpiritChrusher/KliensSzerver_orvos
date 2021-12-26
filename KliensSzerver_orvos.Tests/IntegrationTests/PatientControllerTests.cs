@@ -1,43 +1,39 @@
-using Microsoft.AspNetCore.Mvc;
-
 namespace KliensSzerver_orvos.Tests.IntegrationTests;
 
 [TestClass]
 public class PatientControllerTests
 {
-    private PatientController _PatientController { get; set; } = null!;
-    private IPatientRepository _mockPatientRepository { get; set; } = null!;
-    private PatientContext? _patientContext { get; set; }
-    private List<PatientDto> _mockPatients { get; set; } = null!;
-    private PatientRequest _mockPatientsRequest { get; set; } = null!;
-    private PatientDto _mockPatientDto { get; set; } = null!;
+    private PatientController _patientController { get; set; } = null!;
+    private Mock<IPatientRepository> _patientRepository { get; set; } = null!;
+    private List<PatientDto> _patients { get; set; } = null!;
+    private PatientRequest _patientsRequest { get; set; } = null!;
+
 
     [TestInitialize]
     public void Initialize()
     {
-        _PatientController.ControllerContext = new();
-        _mockPatientRepository = Substitute.For<IPatientRepository>();
-        _PatientController = new(_mockPatientRepository);
-        
-        _mockPatientsRequest = new("a", "b", "c", "d");
+        _patientRepository = new Mock<IPatientRepository>();
 
-        _mockPatientDto = new(1, "name", "address", "ssn", "description");
+        _patientController = new PatientController(_patientRepository.Object);
 
-        _mockPatients = new List<PatientDto>() { 
-            new(1,"a", "b", "c", "d" ),
-            new(2, "a", "b", "c", "d")};
+        _patients = new List<PatientDto>() { 
+            new(3,"a", "b", "c", "d" ),
+            new(4, "a", "b", "c", "d")};
 
+        _patientsRequest = new("a", "b", "c", "d");
         
     }
-    
     [TestMethod]
-    public async Task ReadPatientAsync()
+    public void GetPatients_ShouldGetPatients()
     {
-        _mockPatientRepository.ReadPatientAsync(Arg.Any<long>()).Returns(_mockPatientDto);
+        _patientRepository.Setup(p => p.ReadAllPatientsAsync()).Returns(_patients);
 
-        var response = await _PatientController.GetPatient(Arg.Any<long>());
-        
+        var response = _patientController.GetPatients();
+
         Assert.IsNotNull(response);
-        Assert.AreEqual(_mockPatientDto, response);
+
+        var result = response.Result as OkObjectResult;
+
+        Assert.AreEqual(200, result.StatusCode);
     }
 }
