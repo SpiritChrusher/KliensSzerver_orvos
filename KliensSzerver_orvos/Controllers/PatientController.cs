@@ -1,6 +1,6 @@
 ﻿namespace KliensSzerver_orvos.Controllers;
 
-[Route("/Patient")]
+[Route("/patient")]
 public class PatientController : Controller
 {
     private IPatientRepository _patientRepository { get; }
@@ -11,7 +11,7 @@ public class PatientController : Controller
     }
 
     [HttpGet]
-    [Route("/all")]
+    [Route("")]
     public ActionResult<List<PatientDto>> GetPatients()
     {
         try
