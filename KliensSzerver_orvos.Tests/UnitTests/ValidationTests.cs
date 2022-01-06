@@ -1,4 +1,4 @@
-using KliensSzerver_orvos_client.Extensions;
+using Asszisztens_kliens.Extensions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace KliensSzerver_orvos.Tests.UnitTests;
@@ -11,18 +11,22 @@ public class ValidationTests
     {
         string teststring = "Szabo Kristof";
         string teststring2 = "Kristof";
+        string teststring3 = "Szabo Kristof Peter";
 
         Assert.AreEqual(true, Validation.IsValidName(teststring));
         Assert.AreEqual(true, Validation.IsValidName(teststring2));
+        Assert.AreEqual(true, Validation.IsValidName(teststring3));
 
     }
 
     [TestMethod]
     public void NameValidation_ShouldBeInValid()
     {
-        string? name = "";
+        string name = "";
+        string name2 = " ";
 
         Assert.AreEqual(false, Validation.IsValidName(name));
+        Assert.AreEqual(false, Validation.IsValidName(name2));
     }
 
 

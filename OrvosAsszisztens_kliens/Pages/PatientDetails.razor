@@ -1,0 +1,24 @@
+﻿@page "/patientdetails/{id}"
+@inherits PatientDetailsBase
+
+<div class="row justify-content-center m-3">
+    <div class="col-sm-8">
+        <div class="card">
+            <div class="card-header">
+                <h1>@Patient.Name @Patient.SSN</h1>
+            </div>
+
+            <div class="card-body text-center">
+
+                <h4>Patient ID : @Patient.Id</h4>
+                <h4>Address : @Patient.Address</h4>
+                <h4>Description : @Patient.Description</h4>
+            </div>
+            <div class="card-footer text-center">
+                <a href="/" class="btn btn-primary">Back</a>
+                <a href="@($"../editpatient/{Patient.Id}")" class="btn btn-primary">Edit</a>
+                <button class="btn btn-danger m-1" @onclick=DeletePatient>Delete</button>
+            </div>
+        </div>
+    </div>
+</div>

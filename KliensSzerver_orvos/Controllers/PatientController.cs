@@ -1,6 +1,6 @@
 ﻿namespace KliensSzerver_orvos.Controllers;
 
-[Route("/patient")]
+[Route("/patients")]
 public class PatientController : Controller
 {
     private IPatientRepository _patientRepository { get; }

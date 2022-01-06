@@ -5,9 +5,12 @@ VisualStudioVersion = 17.1.31903.286
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KliensSzerver_orvos", "KliensSzerver_orvos\KliensSzerver_orvos.csproj", "{C527D141-E9E1-46F5-83DA-A85BBA5BC8EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KliensSzerver_orvos.Tests", "KliensSzerver_orvos.Tests\KliensSzerver_orvos.Tests.csproj", "{42164BBD-514E-461D-98AD-3DC8854073D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KliensSzerver_orvos.Tests", "KliensSzerver_orvos.Tests\KliensSzerver_orvos.Tests.csproj", "{42164BBD-514E-461D-98AD-3DC8854073D5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{864DD03E-668F-405B-85AB-B44A40F5C855} = {864DD03E-668F-405B-85AB-B44A40F5C855}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KliensSzerver_orvos_client", "KliensSzerver_orvos_client\KliensSzerver_orvos_client.csproj", "{80D5CCB0-D373-4FAA-BCE9-5AA38639EF6A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Asszisztens_kliens", "Asszisztens_kliens\Asszisztens_kliens.csproj", "{864DD03E-668F-405B-85AB-B44A40F5C855}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +26,10 @@ Global
 		{42164BBD-514E-461D-98AD-3DC8854073D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{42164BBD-514E-461D-98AD-3DC8854073D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{42164BBD-514E-461D-98AD-3DC8854073D5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{80D5CCB0-D373-4FAA-BCE9-5AA38639EF6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{80D5CCB0-D373-4FAA-BCE9-5AA38639EF6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{80D5CCB0-D373-4FAA-BCE9-5AA38639EF6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{80D5CCB0-D373-4FAA-BCE9-5AA38639EF6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{864DD03E-668F-405B-85AB-B44A40F5C855}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{864DD03E-668F-405B-85AB-B44A40F5C855}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{864DD03E-668F-405B-85AB-B44A40F5C855}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{864DD03E-668F-405B-85AB-B44A40F5C855}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
