@@ -9,9 +9,9 @@ public class ValidationTests
     [TestMethod]
     public void NameValidation_ShouldBeValid()
     {
-        string teststring = "Szabo Kristof";
-        string teststring2 = "Kristof";
-        string teststring3 = "Szabo Kristof Peter";
+        string teststring = "Szabó Kristóf";
+        string teststring2 = "Kristóf";
+        string teststring3 = "Szabó Kristóf Péter";
 
         Assert.AreEqual(true, Validation.IsValidName(teststring));
         Assert.AreEqual(true, Validation.IsValidName(teststring2));
@@ -24,9 +24,15 @@ public class ValidationTests
     {
         string name = "";
         string name2 = " ";
+        string name3 = "Szabo-Kristof Adam";
+        string name4 = "     ";
+        string name5 = "Kristóf !Anita'";
 
         Assert.AreEqual(false, Validation.IsValidName(name));
         Assert.AreEqual(false, Validation.IsValidName(name2));
+        Assert.AreEqual(false, Validation.IsValidName(name3));
+        Assert.AreEqual(false, Validation.IsValidName(name4));
+        Assert.AreEqual(false, Validation.IsValidName(name5));
     }
 
 

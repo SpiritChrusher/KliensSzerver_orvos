@@ -1,0 +1,46 @@
+﻿@page "/editpatient/{id}"
+@inherits EditPatientBase
+
+<EditForm Model="@Patient" OnValidSubmit="HandleValidSubmit">
+    <a href="/" class="btn btn-primary">Back</a>
+    <hr />
+    <h3>Edit Patient</h3>
+    <hr />
+    <div class="form-group row">
+        <label for="firstName" class="col-sm-2 col-form-label">
+            Name
+        </label>
+        <div class="col-sm-10">
+            <InputText id="name" class="form-control" placeholder="Name"
+                        @bind-Value="Patient.Name" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="lastName" class="col-sm-2 col-form-label">
+            Address
+        </label>
+        <div class="col-sm-10">
+            <InputText id="address" class="form-control" placeholder="Address"
+                        @bind-Value="Patient.Address" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="email" class="col-sm-2 col-form-label">
+            SSN
+        </label>
+        <div class="col-sm-10">
+            <InputText id="ssn" class="form-control" placeholder="000 000 000"
+                        @bind-Value="Patient.SSN" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="department" class="col-sm-2 col-form-label">
+            Description
+        </label>
+        <div class="col-sm-10">
+            <InputText id="description" class="form-control" placeholder="description"
+                        @bind-Value="Patient.Description" />
+        </div>
+    </div>
+    <button class="btn btn-primary" type="submit">Submit</button>
+</EditForm>

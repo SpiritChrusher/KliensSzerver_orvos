@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace Asszisztens_kliens.Extensions;
+namespace Orvos_kliens.Extensions;
 
 public static class Validation
 {

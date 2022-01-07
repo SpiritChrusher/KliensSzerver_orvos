@@ -12,7 +12,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KliensSzerver_orvos.Tests",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Asszisztens_kliens", "Asszisztens_kliens\Asszisztens_kliens.csproj", "{864DD03E-668F-405B-85AB-B44A40F5C855}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrvosAsszisztens_kliens", "..\..\Blazor\OrvosAsszisztens_kliens\OrvosAsszisztens_kliens\OrvosAsszisztens_kliens.csproj", "{51683293-955F-429A-B8C8-1B27C77B5B3F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orvos_kliens", "Orvos_kliens\Orvos_kliens.csproj", "{097CDACE-9370-4315-AFF1-8DD542F39CDE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,10 +32,10 @@ Global
 		{864DD03E-668F-405B-85AB-B44A40F5C855}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{864DD03E-668F-405B-85AB-B44A40F5C855}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{864DD03E-668F-405B-85AB-B44A40F5C855}.Release|Any CPU.Build.0 = Release|Any CPU
-		{51683293-955F-429A-B8C8-1B27C77B5B3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{51683293-955F-429A-B8C8-1B27C77B5B3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{51683293-955F-429A-B8C8-1B27C77B5B3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{51683293-955F-429A-B8C8-1B27C77B5B3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{097CDACE-9370-4315-AFF1-8DD542F39CDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{097CDACE-9370-4315-AFF1-8DD542F39CDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{097CDACE-9370-4315-AFF1-8DD542F39CDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{097CDACE-9370-4315-AFF1-8DD542F39CDE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
