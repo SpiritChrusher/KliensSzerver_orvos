@@ -1,10 +1,4 @@
-﻿using Orvos_kliens.Extensions;
-using Orvos_kliens.Models;
-using Orvos_kliens.Services;
-using Microsoft.AspNetCore.Components;
-using Microsoft.JSInterop;
-
-namespace Orvos_kliens.Pages;
+﻿namespace Orvos_kliens.Pages;
 
 public class EditPatientBase : ComponentBase
 {

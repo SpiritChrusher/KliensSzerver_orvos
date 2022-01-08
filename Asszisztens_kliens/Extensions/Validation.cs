@@ -1,6 +1,4 @@
-﻿using System.Text.RegularExpressions;
-
-namespace Asszisztens_kliens.Extensions;
+﻿namespace Asszisztens_kliens.Extensions;
 
 public static class Validation
 {

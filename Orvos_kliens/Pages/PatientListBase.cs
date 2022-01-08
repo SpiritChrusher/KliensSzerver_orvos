@@ -1,9 +1,4 @@
-﻿using Orvos_kliens.Models;
-using Orvos_kliens.Services;
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Http.Extensions;
-
-namespace Orvos_kliens.Pages;
+﻿namespace Orvos_kliens.Pages;
 
 public class PatientListBase : ComponentBase
 {

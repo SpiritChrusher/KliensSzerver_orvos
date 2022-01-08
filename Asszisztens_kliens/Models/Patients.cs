@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Asszisztens_kliens.Models;
+﻿namespace Asszisztens_kliens.Models;
 
 public record PatientRequest(
     [Required]

@@ -1,6 +1,4 @@
-﻿using System.Text.RegularExpressions;
-
-namespace Orvos_kliens.Extensions;
+﻿namespace Orvos_kliens.Extensions;
 
 public static class Validation
 {

@@ -1,9 +1,4 @@
-﻿using Asszisztens_kliens.Extensions;
-using Asszisztens_kliens.Models;
-using Asszisztens_kliens.Services;
-using Microsoft.AspNetCore.Components;
-
-namespace Asszisztens_kliens.Pages;
+﻿namespace Asszisztens_kliens.Pages;
 
 public class CreatePatientBase : ComponentBase
 {

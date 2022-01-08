@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Orvos_kliens.Models;
+﻿namespace Orvos_kliens.Models;
 
 public record PatientRequest(
     [Required]

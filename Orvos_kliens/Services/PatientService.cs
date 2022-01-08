@@ -1,7 +1,4 @@
-﻿using Orvos_kliens.Models;
-using System.Collections.Generic;
-
-namespace Orvos_kliens.Services;
+﻿namespace Orvos_kliens.Services;
 
 public class PatientService : IPatientService
 {
