@@ -1,14 +1,15 @@
 ﻿@page "/"
 @inherits PatientListBase
 
-<h3>Patients' List</h3>
 
-@if (Patients == null)
+@if (Patients is null)
 {
     <div class="spinner"></div>
 }
 else
 {
+<h2>Doctor's client. You can view and edit patient's data.</h2>
+<h3>Patients' list</h3>
 <div class="card-deck">
     @foreach (var patient in Patients)
     {
@@ -27,6 +28,6 @@ else
         </div>
     </div>
     }
-    <button class="btn btn-danger m-1" @onclick=DeleteAllPatients>DeleteAll</button>
 </div>
+    <button class="btn btn-danger m-1" @onclick=DeleteAllPatients>DeleteAll</button>
 }
