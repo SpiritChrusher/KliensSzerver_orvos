@@ -1,6 +1,6 @@
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddScoped<IPatientRepository, PatientRepository>();
+builder.Services.AddTransient<IPatientRepository, PatientRepository>();
 
 builder.Services.AddMvc();
 builder.Services.AddEndpointsApiExplorer();

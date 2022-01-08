@@ -18,7 +18,7 @@ public class PatientRepository : IPatientRepository
 
     public async Task<PatientDto> ReadPatientAsync(long id)
     {
-        var patient = await _context.Patients.Where(x => x.Id == id).FirstAsync();
+        var patient = await _context.Patients.Where(x => x.Id == id).FirstOrDefaultAsync();
         return patient;
     }
 
