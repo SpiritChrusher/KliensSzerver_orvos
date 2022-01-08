@@ -28,7 +28,7 @@ public class CreatePatientBase : ComponentBase
 
         PatientRequest PatientRequest = new(name, address, ssn, description);
 
-        if (!(Validation.IsValidName(name) && Validation.IsValidSSN(ssn)))
+        if (!(Validation.IsValidName(name) && Validation.IsValidSSN(ssn)) || string.IsNullOrWhiteSpace(description))
             return;
 
         await PatientService.CreateAsync(PatientRequest);
