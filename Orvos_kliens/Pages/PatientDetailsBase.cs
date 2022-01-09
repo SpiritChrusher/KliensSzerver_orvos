@@ -15,7 +15,7 @@ public class PatientDetailsBase : ComponentBase
 
     protected async override Task OnInitializedAsync()
     {
-        Id = Id ?? "1";
+        Id ??= "1";
         Patient = await PatientService.GetByIdAsync(long.Parse(Id));
     }
 

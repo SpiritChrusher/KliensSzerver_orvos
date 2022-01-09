@@ -2,9 +2,10 @@
 @inherits PatientListBase
 
 
-@if (Patients is null)
+@if (Patients is null || Patients.Count() is 0)
 {
     <div class="spinner"></div>
+    <h2>Nothing to see here... yet!</h2>
 }
 else
 {

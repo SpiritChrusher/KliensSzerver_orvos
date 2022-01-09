@@ -10,6 +10,8 @@ public class CreatePatientBase : ComponentBase
     [Parameter]
     public string Id { get; set; }
 
+    public string Information { get; set; }
+
     [Inject]
     public NavigationManager NavigationManager { get; set; }
 
@@ -23,11 +25,15 @@ public class CreatePatientBase : ComponentBase
 
         PatientRequest PatientRequest = new(name, address, ssn, description);
 
-        if (!(Validation.IsValidName(name) && Validation.IsValidSSN(ssn)) || string.IsNullOrWhiteSpace(description))
+        if (!(Validation.IsValidName(name) && Validation.IsValidSSN(ssn))
+            || string.IsNullOrWhiteSpace(description))
+        {
+            Information = "Some information is incorrect";
             return;
+        }
 
         await PatientService.CreateAsync(PatientRequest);
+        Information = "Patient is created";
         Patient = new();
-
     }
 }
