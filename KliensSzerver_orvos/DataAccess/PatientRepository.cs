@@ -2,7 +2,7 @@
 
 public class PatientRepository : IPatientRepository
 {
-    private PatientContext _context { get; }
+    private readonly PatientContext _context;
 
     public PatientRepository(PatientContext context)
     {
@@ -54,13 +54,13 @@ public class PatientRepository : IPatientRepository
     {
         try
         {
-            var patient = _context.Patients.First(x => x.Id == id);
+            var patient = await _context.Patients.FirstOrDefaultAsync(x => x.Id == id);
             _context.Remove(patient);
             await _context.SaveChangesAsync();
         }
         catch (InvalidOperationException)
         {
-            new BadRequestException();
+            throw new BadRequestException();
         }
     }
 }

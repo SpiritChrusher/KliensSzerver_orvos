@@ -3,7 +3,7 @@
 [Route("/patients")]
 public class PatientController : Controller
 {
-    private IPatientRepository _patientRepository { get; }
+    private readonly IPatientRepository _patientRepository;
 
     public PatientController(IPatientRepository patientRepository)
     {

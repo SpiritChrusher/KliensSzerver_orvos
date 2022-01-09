@@ -23,7 +23,7 @@ public class CreatePatientBase : ComponentBase
     {
         var (_, name, address, ssn, description) = Patient;
 
-        PatientRequest PatientRequest = new(name, address, ssn, description);
+        PatientRequest PatientRequest = new(name ??= "", address ??="", ssn ??="", description ??="");
 
         if (!(Validation.IsValidName(name) && Validation.IsValidSSN(ssn))
             || string.IsNullOrWhiteSpace(description))
